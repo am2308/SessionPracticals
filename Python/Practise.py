@@ -290,7 +290,7 @@ else:
 import os
 import datetime
 
-directory = '/Users/mittal.akhil/sede-res/SEUK-EPA-GAS-Data-Validation-App/TestFiles'
+directory = ''
 threshold_date = datetime.datetime(2024, 9, 19)
 
 for filename in os.listdir(directory):
