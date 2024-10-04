@@ -111,7 +111,7 @@ else:
 
 # If-elif-else statement
 # Example 3: Determining the grade based on a score
-score = 55
+score = 75
 
 if score >= 90:
     print("Grade A")
@@ -147,8 +147,8 @@ else:
 # For loop
 fruits = ['apple', 'banana', 'cherry']
 
-for fruit in fruits:
-    print(fruit)
+for every_item in fruits:
+    print(every_item)
 print("End of loop")
 
 # while loop
@@ -175,6 +175,7 @@ print("End of loop")
 person = {'name': 'John', 'age': 30, 'city': 'New York'}
 for key, value in person.items():
     print(f'{key}: {value}')
+
 
 # Loop control statements
 for i in range(5):
@@ -242,6 +243,8 @@ add(1, 2, 3)  # Output: 6
 ##--------------------------------------------------------------------------##
 # Module
 import mathmodule
+
+print("Calling Module functions")
 result_add = mathmodule.add(3, 4)
 result_subtract = mathmodule.subtract(7, 2)
 
@@ -290,12 +293,13 @@ else:
 import os
 import datetime
 
-directory = ''
-threshold_date = datetime.datetime(2024, 9, 19)
+directory = '../TestFiles'
+threshold_date = datetime.datetime(2024, 9, 20)
 
 for filename in os.listdir(directory):
     filepath = os.path.join(directory, filename)
-    print(os.path.getmtime, threshold_date.timestamp())
+    print(filepath)
+    print(os.path.getmtime(filepath), threshold_date.timestamp())
     if os.path.isfile(filepath) and os.path.getmtime(filepath) < threshold_date.timestamp():
         os.remove(filepath)
 
@@ -306,10 +310,11 @@ import json
 
 # JSON data as a string
 json_data = '{"name": "John Doe", "age": 30, "city": "New York"}'
-
+print(type(json_data))  # Output: <class 'str'>
 # Parse JSON string to a Python dictionary
 data = json.loads(json_data)
-
+print(type(data))  # Output: <class 'dict'>
+print(data['age'])  # Output: 30
 # Accessing elements in the dictionary
 print(data['name'])  # Output: John Doe
 print(data['age'])   # Output: 30
@@ -320,9 +325,12 @@ import json
 
 # JSON data as a string
 json_data = '{"name": "John Doe", "age": 30, "city": "New York"}'
+print(type(json_data))  # Output: <class 'str'>
 
 # Parse JSON string to a Python dictionary
 data = json.loads(json_data)
+print(type(data))  # Output: <class 'dict'>
+print(data['age'])  # Output: 30
 
 # Modify data
 data['age'] = 31
@@ -339,14 +347,16 @@ print(updated_json_data)  # Output: {"name": "John Doe", "age": 31, "city": "San
 import json
 
 # JSON data as a string with nested structure
-json_data = '{"person": {"name": "John Doe", "age": 30, "city": "New York"}}'
+json_data = '{"person": {"name": "John Doe", "age": 30, "city": "New York"}, "animal": {"name": "Tommy", "age": 5}}'
 
 # Parse JSON string to a Python dictionary
 data = json.loads(json_data)
 
 # Accessing nested elements
+print(data['person'])  # Output: {'name': 'John Doe', 'age': 30, 'city': 'New York'}
 print(data['person']['name'])  # Output: John Doe
 print(data['person']['age'])   # Output: 30
+print(data['animal']['age'])   # Output: 5
 
 ##--------------------------------------------------------------------------##
 ## Reading/Writing to/from a file
@@ -363,3 +373,29 @@ with open('output.json', 'r') as file:
     data_read = json.load(file)
 
 print(data_read)  # Output: {'name': 'John Doe', 'age': 30, 'city': 'New York'}
+
+##--------------------------------------------------------------------------##
+## Reading from excel
+
+import pandas as pd
+excel_file_path = ''  # Replace with your Excel file path
+
+# Read the Excel file into a pandas DataFrame
+df = pd.read_excel(excel_file_path)
+column_definitions = []
+for column_name, dtype in zip(df.columns, df.dtypes):
+    # Mapping pandas dtypes to MySQL types
+    if 'int' in str(dtype):
+        mysql_type = 'INT'
+    elif 'float' in str(dtype):
+        mysql_type = 'FLOAT'
+    elif 'datetime' in str(dtype):
+        mysql_type = 'DATETIME'
+    else:
+        mysql_type = 'VARCHAR(255)'  # Default to VARCHAR for strings and other types
+
+    column_definitions.append(f"`{column_name}` {mysql_type}")
+print (column_definitions)
+
+##--------------------------------------------------------------------------##
+import boto3
