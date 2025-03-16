@@ -1,0 +1,35 @@
+docker build -t myimage:1.0 .
+
+docker run -d -p 8080:80 myimage:1.0 --name=mycontainer --network=mybridge
+
+docker exec -it mycontainer bash
+
+docker network create mybridge
+
+docker ps -a
+
+docker stop mycontainer
+
+docker kill mycontainer
+
+docker images
+
+docker rmi myimage:1.0
+
+docker system prune -a
+
+docker logs mycontainer
+
+docker inspect mycontainer
+
+docker cp mycontainer:/path/to/file /path/to/destination
+
+docker cp /path/to/file mycontainer:/path/to/destination
+
+docker volume create myvolume
+
+docker volume ls
+
+docker volume inspect myvolume
+
+docker volume rm myvolume

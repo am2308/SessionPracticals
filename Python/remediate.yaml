@@ -1,0 +1,35 @@
+name: Remediate AWS Security Hub Findings
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  remediate_findings:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: List critical findings in AWS Security Hub
+        id: list_findings
+        run: |
+          findings=$(aws securityhub get-findings --filters '{"SeverityLabel": [{"Value": "CRITICAL", "Comparison": "EQUALS"}]}' --query 'Findings[*].Id' --output text)
+          echo "findings=$findings" >> $GITHUB_ENV
+
+      - name: Trigger remediation for critical findings
+        if: env.findings
+        run: |
+          for finding_id in $findings; do
+            aws lambda invoke --function-name "RemediateFindingFunction" --payload "{\"finding_id\": \"$finding_id\"}" response.json
+            cat response.json
+          done

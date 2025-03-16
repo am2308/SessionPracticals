@@ -4,9 +4,9 @@ from mysql.connector import Error
 
 # Configuration details
 excel_file_path = ''  # Replace with your Excel file path
-mysql_host = ''  # Replace with your MySQL host
+mysql_host = 'localhost'  # Replace with your MySQL host
 mysql_user = ''       # Replace with your MySQL username
-mysql_password = input("Enter Password:")  # Replace with your MySQL password
+mysql_codereplace = input("Enter codereplace:")  # Replace with your MySQL codereplace
 database_name = ''  # Replace with your desired database name
 table_name = ''  # Replace with your desired table name
 
@@ -19,8 +19,8 @@ try:
     connection = mysql.connector.connect(
         host=mysql_host,
         user=mysql_user,
-        password=mysql_password,
-        auth_plugin='mysql_native_password'
+        codereplace=mysql_codereplace,
+        auth_plugin='mysql_native_codereplace'
     )
 
     if connection.is_connected():

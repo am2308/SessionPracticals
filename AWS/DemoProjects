@@ -1,0 +1,70 @@
+1)RDS connectivity from EC2 --> RDS/EC2
+2)On Prem Data Migration --> RDS/MYSQL
+3)AWS Lambda and layers --> Lambda/CloudWatch - Bookmark
+4)CRUD API with Lambda --> Api/Lambda/Dynamodb - am2308
+5)S3 static website hosting --> IAM/S3/Route53/CloudFront/ACM - am2308
+6) SSM Manager --> SSM/EC2 - Bookmark
+7) VPC Endpoint --> Subnets/VPC Endpoint - Bookmark
+8) How to ssh privtae instance from public instance - Bookmark
+9) Deploy container in ECS --> ECR/ECS - Bookmark
+10) ASG through CF - VSCode
+11) CW-->SNS-->Lambda - Me
+12) ECS deployment through CF
+13) Jenkins build --> Vscode
+14) Fetch custom metrics --> am2308/session practical
+
+Project
+-------
+1) Start Stop --> Vscode
+2) Pub Sub application --> am2308/github pipeline
+3) deploy nodejs app in ECS using code pipeline --> am2308/Bookmark --> https://github.com/am2308/aws-codepipeline-ecs
+    Create Docker image on EC2
+    Create ECR
+    Push image to ECR
+    Create ECS Cluster
+    Create Task Definition
+    Create Service And choose to create ALB
+    Create SG for ECS with access from ALB
+    Create SG for ALB with access from internet on port 80
+    Create codecommit repo
+    Create git user credentials for user in IAM
+    Push code to codecommit from EC2
+    Now create codebuild project with IAM role access to ECR
+    Now create codepipeline with source as codecommit, build as codebuild and deploy as ECS
+4) Deploy static website using s3, cf, route53
+5) Consumer/Producer using Kafka/Glue --> am2308/kafka-setup
+6) 3Tier - am2308/react-nodejs
+7) rentzone site --> am2308/entzone
+8) eccomerse --> am2308/lamp-stack
+
+
+##Arcitecture
+-----------
+1) CW Event Trigger for Lambda start stop and dynamodb table update --> VScode
+2) Rate Limiting, Auth, Caching --> 
+3) 3 Tier web app
+
+## DSI
+------
+1) Spotify app
+2) Car garage and parking reservation
+## Code Commit User Credentials
+ProgramUser-at-637423357784
+OYEOQh2Y2CfIzcigpE7LQcdwFY9kQmcfCUj2mMEr5O5F3QH1xZM15uXKvC0=
+
+aws ecr get-login-codereplace --region ap-south-1 | docker login --username AWS --codereplace-stdin 637423357784.dkr.ecr.ap-south-1.amazonaws.com
+docker tag nginx:latest 637423357784.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
+docker push 637423357784.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
+
+
+Jupyter
+-------
+jupyter notebook --no-browser --port=8888 --allow-root
+ssh -i assignment.pem -L 8888:localhost:8888 ec2-user@43.205.255.145
+
+{
+    "Effect": "Allow",
+	"Principal": "*",
+	"Action": "S3:*",
+	"Resource": "arn:aws:s3:::gme-files/*"
+}

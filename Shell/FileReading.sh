@@ -6,6 +6,6 @@ while IFS= read -r line; do
     # Increment count
     COUNT=$((COUNT + 1))
   fi
-done < http_error_logs.log
+done < http_error_logs.log 
 
 echo "Total no of HTTP Error is $COUNT"

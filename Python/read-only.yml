@@ -1,0 +1,49 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Creates ReadOnly IAM Roles in an Organization for AWS Inventory Analytics
+
+Parameters:
+  HubAccountId:
+    Type: String
+    Description: Account id of the Hub account
+    AllowedPattern: ^[0-9]{12}$
+  Prefix:
+    Type: String
+    Description: Prefix name used in Terraform deployment
+
+Resources:
+  ReadOnlyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: Inventory role for the management account
+      RoleName: !Sub
+        - '${Prefix}-read-only-inventory-role'
+        - Prefix: !Ref Prefix
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref HubAccountId
+            Action:
+              - sts:AssumeRole
+            Condition:
+              ArnLike:
+                "aws:PrincipalArn": !Sub
+                  - 'arn:aws:iam::${AccountId}:role/${Prefix}*'
+                  - AccountId: !Ref HubAccountId
+                    Prefix: !Ref Prefix
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+      Policies:
+        - PolicyName: ListCostExplorerTags
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: "ce:ListCostAllocationTags"
+                Resource: "*"

@@ -1,0 +1,1107 @@
+ssh -i assignment.pem ec2-user@ec2-13-127-220-18.ap-south-1.compute.amazonaws.com
+brew services start mysql
+
+mysql -h localhost -P 3306 -u root -p
+/opt/homebrew/etc/my.cnf
+mysql --help | grep -A 1 "Default options"
+quay.io/kiwigrid/k8s-sidecar:1.27.4
+quay.io/kiwigrid/k8s-sidecar:1.27.4
+ > show databases;
+
+    > create database test_db;
+
+ > use test_db;
+
+ > create table employee_data (id int, name varchar(20), age int);
+
+ > insert into employee_data values (1, 'John', 25);
+
+ > SELECT * FROM employee_data;
+
+curl -O https://pkg.jenkins.io/redhat/keys/jenkins.io.key
+
+sudo nano /etc/yum.repos.d/jenkins.repo
+
+[jenkins]
+name=Jenkins
+baseurl=https://pkg.jenkins.io/redhat-stable/
+gpgcheck=1
+gpgkey=https://pkg.jenkins.io/redhat/keys/jenkins.io.key
+enabled=1
+
+sudo yum install jenkins -y
+
+#Install Jenkins
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+yum list java*
+install java
+yum install jenkins
+systemctl start jenkins
+
+
+
+nslookup -type=NS demoprojectbc1.com
+dig NS demoprojectbc1.com
+
+# Installation on Ubuntu
+sudo apt install curl unzip -y
+    5  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    6  unzip awscliv2.zip
+    7  sudo ./aws/install
+    8  aws --version
+   12  apt install python3-pip
+   19  apt install python3-boto3
+   20  apt install python3-psutil
+
+
+
+# Assignment EC2 commands
+1  pwd
+    2  touch demo.txt
+    3  aws s3 ls
+    4  aws
+    5  aws s3 ls
+    6  ls ~/.
+    7  ls -lart
+    8  pwd
+    9  which aws
+   10  ls /usr/bin/aws/
+   11  ls -lart
+   12  ls .
+   13  aws configure
+   14  cat ~/.aws/credentials 
+   15  pwd
+   16  ls -lart
+   17  exit
+   18  ls
+   19  ls -lart
+   20  pwd
+   21  exit
+   22  ls
+   23  curl https://api.openai.com/v1/completions   -H "Content-Type: application/json"   -H "Authorization: Bearer $OPENAI_API_KEY"   -d '{
+   24      "model": "gpt-3.5-turbo-instruct",
+   25      "prompt": "Say this is a test",
+   26      "max_tokens": 7,
+   27      "temperature": 0
+   28    }'
+   29  sk-DggxHu_jo03DWpSW6xxfM6eCEkJ0fOp5D1mkClIjlXT3BlbkFJQ6THdT2JBSDlH0j1BIOSU5NKUfRTGQ8fL_-tbluKkA
+   30  curl https://api.openai.com/v1/completions   -H "Content-Type: application/json"   -H "Authorization: Bearer sk-DggxHu_jo03DWpSW6xxfM6eCEkJ0fOp5D1mkClIjlXT3BlbkFJQ6THdT2JBSDlH0j1BIOSU5NKUfRTGQ8fL_-tbluKkA"   -d '{
+   31      "model": "gpt-3.5-turbo-instruct",
+   32      "prompt": "Say this is a test",
+   33      "max_tokens": 7,
+   34      "temperature": 0
+   35    }'
+   36  sk-DggxHu_jo03DWpSW6xxfM6eCEkJ0fOp5D1mkClIjlXT3BlbkFJQ6THdT2JBSDlH0j1BIOSU5NKUfRTGQ8fL_-tbluKkA
+   37  curl https://api.openai.com/v1/completions   -H "Content-Type: application/json"   -H "Authorization: Bearer sk-DggxHu_jo03DWpSW6xxfM6eCEkJ0fOp5D1mkClIjlXT3BlbkFJQ6THdT2JBSDlH0j1BIOSU5NKUfRTGQ8fL_-tbluKkA"   -d '{
+   38      "model": "gpt-3.5-turbo-instruct",
+   39      "prompt": "Say this is a test",
+   40      "max_tokens": 200,
+   41      "temperature": 0.8
+   42    }'
+   43  ls -lart
+   44  exit
+   45  telnet
+   46  sudo telnet
+   47  yum install telnet
+   48  sudo yum install telnet
+   49  telnet
+   50  telnet 13.232.118.94:22
+   51  telnet 13.232.118.94 22
+   52  ping 13.232.118.94
+   53  netstat
+   54  ls -lart
+   55  chmod u+x assignment.pem 
+   56  ls -lart
+   57  chmod 600 assignment.pem 
+   58  ls -lart
+   59  chown root:root assignment.pem 
+   60  sudo chown root:root assignment.pem 
+   61  ls -lart
+   62  top
+   63  cd ~
+   64  cd /
+   65  ls -lart
+   66  df bin/
+   67  df -m bin/
+   68  du -sh bin/
+   69  df -h bin/
+   70  du -s bin/
+   71  du -sh bin/
+   72  Free
+   73  free
+   74  frre -h
+   75  free -h
+   76  free -m
+   77  sudo fdisk -l
+   78  sudo fdisk /dev/xvda1
+   79  disk_usage=$(df / | grep / | awk '{ print $5 }' | sed 's/%//g')
+   80  echo $disk_usage 
+   81  df /
+   82  aws
+   83  which aws
+   84  rm /usr/bin/aws
+   85  sudo rm /usr/bin/aws
+   86  aws
+   87  uname
+   88  uname -a
+   89  Cat /etc/os-release
+   90  cat /etc/os-release
+   91  sudo yum install awscli
+   92  aws
+   93  whereis aws
+   94  sudo yum uninstall awscli
+   95  sudo yum update awscli
+   96  sudo yum update
+   97  sudo yum install awscli
+   98  sudo yum update
+   99  sudo yum install awscli
+  100  curl "https://d1uj6qtbmh3dt5.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  101  ls
+  102  unzip awscliv2.zip 
+  103  ls
+  104  sudo unzip awscliv2.zip 
+  105  sudo unzip awscliv2 
+  106  sudo unzip awscliv2.zip 
+  107  unzip awscliv2.zip
+  108  sudo yum install aws-cli
+  109  aws
+  110  which aws
+  111  sudo aws
+  112  aws s3 ls
+  113  exit
+  114  aws s3 ls
+  115  ifconfig
+  116  exit
+  117  aws
+  118  which aws
+  119  sudo yum reinstall aws-cli
+  120  aws
+  121  aws s3 ls
+  122  aws configure
+  123  aws s3 ls
+  124  aws ec2 describe-instances --instance-ids i-0414e9981a08be955
+  125  rm -rf ~/.aws/credentials 
+  126  aws s3 ls
+  127  aws ec2 describe-instances --instance-ids i-0414e9981a08be955
+  128  aws s3 ls
+  129  aws ec2 describe-instances --instance-ids i-0414e9981a08be955
+  130  aws ec2 describe-instances --instance-ids i-1234567890abcdef0
+  131  yum install mysql
+  132  sudo yum install mysql
+  133  sudo yum update
+  134  sudo yum install mysql
+  135  sudo yum install mysql-client
+  136  sudo yum install mysql
+  137  sudo yum install mysql-server
+  138  mysql
+  139  sudo yum install -y https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+  140  sudo yum install -y mysql-community-client
+  141  rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+  142  sudo yum install -y mysql-community-client
+  143  rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+  144  sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+  145  sudo yum install -y mysql-community-client
+  146  mysql
+  147  sudo mysql
+  148  mysql -h demodb.cvcei8m06no8.ap-south-1.rds.amazonaws.com -P 3306 -u demodb -p
+  149  ping
+  150  ping 93.174.87.45
+  151  telnet 93.174.87.45 3306
+  152  mysql -h database-1.cvcei8m06no8.ap-south-1.rds.amazonaws.com -P 3306 -u your-username -p
+  153  mysql -h database-1.cvcei8m06no8.ap-south-1.rds.amazonaws.com -P 3306 -u demodb -p
+  154  java -version
+  155  sudo yum -y install java-1.8.0-openjdk
+  156  sudo yum update
+  157  sudo yum -y install java-1.8.0-openjdk
+  158  sudo yum -y install java
+  159  java -version
+  160  cd /root
+  161  sudo cd /root
+  162  wget  https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.noarch.rpm
+  163  sudo yum install elasticsearch-1.7.2.noarch.rpm -y
+  164  rm -f elasticsearch-1.7.2.noarch.rpm
+  165  sudo service elasticsearch start
+  166  sudo chkconfig --add elasticsearch
+  167  echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
+  168  sudo 
+  169  echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
+  170  sudo echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
+  171  sudo echo "network.host: 0.0.0.0" >> sudo /etc/elasticsearch/elasticsearch.yml
+  172  sudo cd /usr/share/elasticsearch/
+  173  ./bin/plugin -install mobz/elasticsearch-head
+  174  ls -lart
+  175  pwd
+  176  sudo cd /usr/share/elasticsearch/
+  177  pwd
+  178  cd /usr/share/elasticsearch/
+  179  ls
+  180  ./bin/plugin -install mobz/elasticsearch-head
+  181  sudo ./bin/plugin -install mobz/elasticsearch-head
+  182  sudo ./bin/plugin -install lukas-vlcek/bigdesk
+  183  sudo ./bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.7.1
+  184  sudo ./bin/plugin --install lmenezes/elasticsearch-kopf/1.5.7
+  185  sudo unzip ./bin/plugin --install lmenezes/elasticsearch-kopf/1.5.7
+  186  sudo unzip /usr/share/elasticsearch/plugins/cloud-aws.zip
+  187  netstat -ntpl
+  188  service elasticsearch status
+  189  service elasticsearch start
+  190  sudo service elasticsearch start
+  191  sudo service elasticsearch status
+  192  java -versiomn
+  193  java -version
+  194  sudo yum -y install java-1.8.0-openjdk
+  195  sudo yum -y install java-1.8.0-openjdksudo update-alternatives --config java
+  196  sudo update-alternatives --config java
+  197  sudo yum -y remove java-1.7.0-openjdk
+  198  sudo yum update -y
+  199  sudo yum uninstall java
+  200  sudo yum remove java
+  201  java
+  202  sudo yum install -y java-11-openjdk
+  203  sudo yum install -y java-11-openjdksudo yum search java | grep openjdk
+  204  sudo yum search java | grep openjdk
+  205  sudo yum install -y java-11-openjdk-devel
+  206  sudo amazon-linux-extras install java-openjdk11
+  207  sudo yum install -y epel-release
+  208  sudo dnf update
+  209  sudo dnf install -y java-11-openjdk
+  210  amazon-linux-extras install -y java-openjdk11
+  211  wget https://download.oracle.com/otn-pub/java/jdk/11.0.12+7/jdk-11.0.12_linux-x64_bin.tar.gz
+  212  sudo wget https://download.oracle.com/otn-pub/java/jdk/11.0.12+7/jdk-11.0.12_linux-x64_bin.tar.gz
+  213  sudo tar -xzf jdk-11.0.12_linux-x64_bin.tar.gz
+  214  ls -lart
+  215  sudo unzip jdk-11.0.12_linux-x64_bin.tar.gz
+  216  sudo tar -xvzf jdk-11.0.12_linux-x64_bin.tar.gz
+  217  ls -lart
+  218  tar -xvzf jdk-11.0.12_linux-x64_bin.tar.gz
+  219  file jdk-11.0.12_linux-x64_bin.tar.gz
+  220  sudo wget https://download.oracle.com/otn-pub/java/jdk/11.0.12+7/jdk-11.0.12_linux-x64_bin.tar.gz
+  221  ls -lart
+  222  file jdk-11.0.12_linux-x64_bin.tar.gz.1
+  223  sudo cat cat /etc/os-release
+  224  sudo yum update
+  225  sudo amazon linux extras install java open jdk 11
+  226  sudo yum list java*
+  227  sudo yum install -y java-1.8.0-amazon-corretto.x86_64
+  228  sudo service elasticsearch status
+  229  sudo service elasticsearch start
+  230  sudo service elasticsearch status
+  231  cd /root
+  232  sudo cd /root
+  233  sudo wget https://download.elastic.co/kibana/kibana/kibana-4.1.2-linux-x64.tar.gz
+  234  sudo tar xzf kibana-4.1.2-linux-x64.tar.gz
+  235  sudo rm -f kibana-4.1.2-linux-x64.tar.gz
+  236  sudo cd kibana-4.1.2-linux-x64
+  237  nano config/kibana.yml
+  238  sudo cd /root
+  239  cd wget https://download.elastic.co/kibana/kibana/kibana-4.1.2-linux-x64.tar.gz
+  240  sudo wget https://download.elastic.co/kibana/kibana/kibana-4.1.2-linux-x64.tar.gz
+  241  ls
+  242  sudo tar xzf kibana-4.1.2-linux-x64.tar.gz
+  243  ls
+  244  cd kibana-4.1.2-linux-x64/
+  245  ls -lart
+  246  cat config/kibana.yml 
+  247  vi config/kibana.yml 
+  248  sudo vi config/kibana.yml 
+  249  sudo nohup ./bin/kibana &
+  250  netstat -ntpl
+  251  history
+  252  clear
+  253  cd /
+  254  ls -lart
+  255  cd /
+  256  cd bin
+  257  ls -lart
+  258  ls -lart | grep ls
+  259  cd ..
+  260  ls -lart
+  261  ls -lart sbin/ | grep useradd
+  262  cd mnt/
+  263  ls -lart
+  264  cd ..
+  265  cd usr/
+  266  ls -lart
+  267  cd .../dev
+  268  cd ..
+  269  cd dev/
+  270  ls -lart
+  271  cd ..
+  272  ls -lart
+  273  ls -l
+  274  man ls
+  275  ps -a
+  276  ps
+  277  top
+  278  cat /proc/cpuinfo 
+  279  cat /proc/meminfo 
+  280  free
+  281  df -h /
+  282  ls -lart
+  283  cd /home/ec2-user/
+  284  ls -lart
+  285  du -sh kibana-4.1.2-linux-x64
+  286  du -m kibana-4.1.2-linux-x64
+  287  ls -lart
+  288  nslookup
+  289  nslookup google.com
+  290  ping localhost
+  291  telnet localhost 22
+  292  telnet localhost 3306
+  293  netstat -ntpl
+  294  sudo service elasticsearch start
+  295  netstat -ntpl
+  296  telnet localhost 9300
+  297  pwd
+  298  ls -lart
+  299  exit
+  300  sudo service elasticsearch status
+  301  curl -v http://65.0.103.37:9200/
+  302  history
+  303  wget https://download.oracle.com/otn-pub/java/jdk/11.0.12+7/jdk-11.0.12_linux-x64_bin.tar.gz
+  304  ls -lart
+  305  chown root:root jdk-11.0.12_linux-x64_bin.tar.gz 
+  306  sudo chown root:root jdk-11.0.12_linux-x64_bin.tar.gz 
+  307  ls -lart
+  308  vi test.sh
+  309  ls -lart
+  310  sh test.sh 
+  311  chmod 100 test.sh 
+  312  sh test.sh 
+  313  ls -lart
+  314  chmod 777 test.sh 
+  315  sh test.sh 
+  316  pwd
+  317  rm -rf assignment.pem 
+  318  ls -lart
+  319  sudo su -
+  320  exit
+  321  ls
+  322  pwd
+  323  cd /home/ec2-user
+  324  ls
+  325  pwd
+  326  ls -lart
+  327  ls -lart
+  328  docker
+  329  sudo su -
+  330  ps aux
+  331  systemctl status elecasticsearch
+  332  systemctl status elasticsearch
+  333  systemctl status kibana
+  334  docker ps -a
+  335  systemctl start docker
+  336  systemctl status docker
+  337  systemctl start docker
+  338  sudo systemctl start docker
+  339  sudo systemctl status docker
+  340  docker ps -a
+  341  sudo docker ps -a
+  342  sudo docker images
+  343  ps aux | grep kibana
+  344  sudo netstat -ntpl | grep kibana
+  345  sudo netstat -ntpl
+  346  sudo systemctl start elasticsearch
+  347  sudo systemctl status elasticsearch
+  348  ls -lart
+  349  ssh ec2-user@172.31.56.210
+  350  exit
+  351  ls -lart
+  352  exit
+  353  ssh -i assignment.pem ec2-user@172.31.56.210
+  354  exit
+  355  aws s3 ls
+  356  systemctl status jenkins
+  357  netstat -ntpl
+  358  df -h
+
+while :; do :; done &
+pkill -f "while :; do :; done"
+
+#lambda dependencies
+mkdir python-packages-layer
+cd python-packages-layer
+mkdir python
+
+pip install pandas -t python/
+pip install mysql-connector-python -t python/
+zip -r ../pandas_mysql_layer.zip python
+
+
+
+kubectl rollout restart deployment <deployment-name> -n <namespace>
+kubectl rollout undo deployment <deployment-name> -n <namespace> --to-revision=1
+
+## Cloudwatch agent
+yum install amazon-cloudwatch-agent -y
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+{
+  "agent": {
+    "metrics_collection_interval": 60,
+    "logfile": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/messages",
+            "log_group_name": "EC2_Log_Group",
+            "log_stream_name": "{instance_id}/messages",
+            "timestamp_format": "%b %d %H:%M:%S"
+          },
+          {
+            "file_path": "/var/log/syslog",
+            "log_group_name": "EC2_Log_Group",
+            "log_stream_name": "{instance_id}/syslog",
+            "timestamp_format": "%b %d %H:%M:%S"
+          }
+        ]
+      }
+    },
+    "log_stream_name": "{instance_id}"
+  }
+}
+
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+  -a fetch-config \
+  -m ec2 \
+  -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json \
+  -s
+sudo systemctl enable amazon-cloudwatch-agent
+sudo systemctl status amazon-cloudwatch-agent
+
+
+
+
+kubectl scale deployment example-deployment -n demo --replicas=5
+  591  kubectl get pods -n demo
+  592  kubectl rollout history deployment example-deployment -n demo
+  593  kubectl set image deployment example-deployment -n demo ubuntu=ubuntu:16.04
+  594  kubectl set image deployment example-deployment -n demo nginx=ubuntu:16.04
+  595  kubectl get pods -n demo
+  596  kubectl rollout deployment example-deployment -n demo
+  597  kubectl rollout -h
+  598  kubectl rollout restart deployment example-deployment -n demo
+  599  kubectl get pods -n demo
+  600  kubectl rollout history deployment example-deployment -n demo
+  601  kubectl rollout undo deployment example-deployment -n demo --to-revision=1
+  602  kubectl get pods -n demo
+  603  kubectl edit pod example-deployment-576c6b7b6-4h5nt -n demo
+  604  kubectl delete deployment example-deployment -n demo
+  605  kubectl delete pod nginx-pod -n demo
+  606  kubectl get all -n demo
+  607  git clone git@github.com:am2308/k8-menifests.git
+  608  git clone https://github.com/am2308/k8-menifests.git
+  609  ssh-keygen -t rsa -b 4096 -C "b110020510@gmail.com"
+  610  cat ~/.ssh/id_rsa.pub
+  611  eval "$(ssh-agent -s)"
+  612  ssh-add ~/.ssh/id_rsa
+  613  ssh -T git@github.com
+
+  SECRET_NAME=$(kubectl -n allowed-namespace get sa/restricted-user -o jsonpath='{.secrets[0].name}')
+TOKEN=$(kubectl -n allowed-namespace get secret $SECRET_NAME -o jsonpath='{.data.token}' | base64 --decode)
+
+kubectl create secret generic mysql-sa-token --from-literal=token=$(openssl rand -hex 32)
+kubectl get secret mysql-sa-token -o jsonpath="{.data.token}" | base64 --decode
+kubectl config set-cluster my-cluster --server=https://192.168.99.100:6443
+kubectl config set-credentials mysql-sa --token=fd37f5ac83f3e112d74fe507ad64327a99ecebe5551d0e3ffc22303adc6780f0
+kubectl config set-context restricted-context --cluster=kind --user=mysql-sa
+kubectl config use-context restricted-context
+
+
+## Inc size of boot volume
+1) lsblk --> recheck size of boot volume
+2) sudo growpart /dev/xvda 1 --> grow partition
+3) sudo xfs_growfs -d / --> grow filesystem
+
+## Mount to a diff disk
+mv /boot/logs /mnt/logs
+ln -s /mnt/logs /boot/logs
+mount --bind /mnt/logs /boot/logs
+vi /etc/fstab
+# /mnt/logs /boot/logs none bind 0 0
+mount -a
+
+curl -o /dev/null -s -w "%{time_total}\n" http://bc1demoproject.com
+
+eksctl create cluster --name=amcdemo \
+                      --region=ap-south-1 \
+                      --zones=ap-south-1a,ap-south-1b \
+                      --without-nodegroup
+
+eksctl utils associate-iam-oidc-provider \
+    --region ap-south-1 \
+    --cluster amcdemo \
+    --approve
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "*",
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+
+eksctl create nodegroup --cluster=amcdemo \
+                       --region=ap-south-1 \
+                       --name=amcdemo-ng-public1 \
+                       --node-type=t3.medium \
+                       --nodes=2 \
+                       --nodes-min=1 \
+                       --nodes-max=6 \
+                       --node-volume-size=30 \
+                       --ssh-access \
+                       --ssh-public-key=assignment \
+                       --managed \
+                       --asg-access \
+                       --external-dns-access \
+                       --full-ecr-access \
+                       --appmesh-access \
+                       --alb-ingress-access
+eksctl scale nodegroup \
+  --cluster amcdemo \
+  --name amcdemo-ng-public1 \
+  --nodes 3 \
+  --nodes-min 3 \
+  --nodes-max 5 \
+  --region ap-south-1
+kubectl edit configmap aws-auth -n kube-system
+cat ~/.kube/config
+
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+helm install loki grafana/loki-stack --namespace monitoring --create-namespace
+
+
+aws eks describe-cluster --name amcdemo --region ap-south-1 --query "cluster.identity.oidc.issuer" --output text
+eksctl create iamserviceaccount \
+  --name karpenter \
+  --namespace karpenter \
+  --cluster amcdemo \
+  --region ap-south-1 \
+  --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
+  --attach-policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess \
+  --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
+  --approve \
+  --override-existing-serviceaccounts
+
+arn:aws:iam::637423357784:role/eksctl-amcdemo-addon-iamserviceaccount-karpen-Role1-1EgaMgCrvGPK
+
+helm install karpenter oci://public.ecr.aws/karpenter/karpenter \
+  --namespace karpenter \
+  --set serviceAccount.annotations."eks\.amazonaws\.com/role-arn"="arn:aws:iam::637423357784:role/eksctl-amcdemo-addon-iamserviceaccount-karpen-Role1-1EgaMgCrvGPK" \
+  --set clusterName=amcdemo \
+  --set clusterEndpoint=$(aws eks describe-cluster --name amcdemo --query "cluster.endpoint" --region ap-south-1 --output text) \
+  --set aws.defaultInstanceProfile=KarpenterNodeInstanceProfile-amcdemo
+
+helm upgrade --install karpenter karpenter/karpenter \
+  --version 0.16.3 \
+  --namespace karpenter \
+  --set serviceAccount.annotations."eks\.amazonaws\.com/role-arn"="arn:aws:iam::637423357784:role/eksctl-amcdemo-addon-iamserviceaccount-karpen-Role1-1EgaMgCrvGPK" \
+  --set clusterName=amcdemo \
+  --set clusterEndpoint=$(aws eks describe-cluster --name amcdemo --query "cluster.endpoint" --region ap-south-1 --output text) \
+  --set aws.defaultInstanceProfile=KarpenterNodeInstanceProfile-amcdemo
+
+vi /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml
+
+docker exec nexus cat /nexus-data/admin.password
+docker run -d --restart unless-stopped --name sonar -p 9000:9000 sonarqube:lts-community
+sudo docker run -d --restart unless-stopped -p 8081:8081 --name nexus --user 0 -v /nexus-data:/nexus-data sonatype/nexus3
+docker run -d --restart unless-stopped -p 8081:8081 --name nexus --user 0 -v /nexus-data:/nexus-data sonatype/nexus3
+
+## Network Policy
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mysql-access-policy
+  namespace: demo  # Replace with the namespace you’re using
+spec:
+  podSelector:
+    matchLabels:
+      app: mysql  # Label of the MySQL StatefulSet
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: phpmyadmin  # Label of the phpMyAdmin app
+      ports:
+        - protocol: TCP
+          port: 3306  # MySQL default port
+
+
+## Keyverno
+-----------
+helm repo add kyverno https://kyverno.github.io/kyverno
+helm repo update
+
+kubectl create namespace kyverno
+helm install kyverno kyverno/kyverno --namespace kyverno
+
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-specific-image-version
+spec:
+  validationFailureAction: Audit
+  rules:
+    - name: check-image-version
+      match:
+        resources:
+          kinds:
+            - Deployment
+          namespaces:
+            - default
+      validate:
+        message: "Image must be version 1.0.0"
+        pattern:
+          spec:
+            template:
+              spec:
+                containers:
+                  - name: "*"
+                    image: "akhilmittal510/background-remover-python-app:1.0.0"
+
+kubectl apply -f policy.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+        - name: test-container
+          image: nginx:1.27.2  # This should trigger the audit policy
+
+kubectl apply -f test-deployment.yaml
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+
+## Expose eks pod metrics to prometheus on ec2
+scrape_configs:
+  - job_name: 'kubernetes-pods'
+    kubernetes_sd_configs:
+      - api_server: 'https://<EKS-API-SERVER-URL>'
+        role: pod
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_label_app]
+        action: keep
+        regex: .+
+
+kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: prometheus
+rules:
+- apiGroups: [""]
+  resources:
+  - nodes
+  - nodes/metrics
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus
+subjects:
+- kind: ServiceAccount
+  name: prometheus
+  namespace: default
+
+
+kubectl apply -f rbac-prometheus.yaml
+
+kubectl -n default get secret $(kubectl -n default get sa prometheus -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+
+kubernetes_sd_configs:
+  - api_server: 'https://<EKS-API-SERVER-URL>'
+    role: pod
+    bearer_token: '<YOUR_TOKEN>'
+
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "<PORT>"
+
+http://<EC2_IP>:9090/targets
+
+## Kubernetes Dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl patch service kubernetes-dashboard -n kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+
+kubectl apply -f sa.yaml
+kubectl -n kubernetes-dashboard create token admin-user
+kubectl -n kubernetes-dashboard get sa admin-user -o jsonpath="{.secrets[0].name}"
+kubectl -n kubernetes-dashboard get secret <secret-name> -o go-template="{{.data.token | base64decode}}"
+
+kubectl port-forward svc/kubernetes-dashboard -n kubernetes-dashboard 445:443 --address=0.0.0.0 &
+
+## Argocd
+kubectl create namespace argocd
+  477  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.7/manifests/install.yaml
+  478  kubectl get pods -A
+  479  kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+  480  kubectl get svc -n argocd
+  481  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+## label app namesapce with prometheus
+kubectl label namespace banking prometheus=enabled
+## label service
+kubectl label service accounts-service app=banking-service -n banking
+kubectl label service auth-service app=banking-service -n banking
+kubectl label service transaction-service app=banking-service -n banking
+
+kubectl get namespace banking --show-labels
+kubectl get services -n banking --show-labels
+kubectl logs -n monitoring -l app.kubernetes.io/name=prometheus
+
+## Prometheus inside EKS on port 9091
+kubectl create namespace monitoring
+  499  helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --set prometheus.service.nodePort=30000 --set prometheus.service.type=NodePort --set grafana.service.nodePort=31000 --set grafana.service.type=NodePort --set alertmanager.service.nodePort=32000 --set alertmanager.service.type=NodePort --set prometheus-node-exporter.service.nodePort=32001 --set prometheus-node-exporter.service.type=NodePort
+  504  helm uninstall prometheus-node-exporter --namespace prometheus-node-exporter
+  507  kubectl port-forward svc/kind-prometheus-kube-prome-prometheus -n monitoring 9091:9090 --address=0.0.0.0 &
+
+kubectl create secret generic alertmanager-prometheus-kube-prometheus-alertmanager -n monitoring \
+  --from-file=alertmanager.yaml=alertmanager.yaml \
+  --dry-run=client -o yaml | kubectl apply -f -
+
+## Installing EFK
+
+eksctl create iamserviceaccount \
+    --name ebs-csi-controller-sa \
+    --namespace kube-system \
+    --cluster amcdemo \
+    --role-name AmazonEKS_EBS_CSI_DriverRole \
+    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+    --region ap-south-1 \
+    --approve
+
+ARN=$(aws iam get-role --role-name AmazonEKS_EBS_CSI_DriverRole --query 'Role.Arn' --output text)
+
+eksctl create addon --cluster amcdemo --name aws-ebs-csi-driver --region ap-south-1 --version latest \
+    --service-account-role-arn $ARN --force
+  
+kubectl create namespace logging
+helm repo add elastic https://helm.elastic.co
+helm install elasticsearch \
+ --set replicas=1 \
+ --set volumeClaimTemplate.storageClassName=gp2 \
+ --set persistence.labels.enabled=true elastic/elasticsearch -n logging
+kubectl label namespace banking logging=enabled
+kubectl label deployment banking-app logging=enabled --namespace banking
+kubectl get secrets --namespace=logging elasticsearch-master-credentials -ojsonpath='{.data.username}' | base64 -d
+elastic
+kubectl get secrets --namespace=logging elasticsearch-master-credentials -ojsonpath='{.data.password}' | base64 -d
+helm install kibana --set service.type=LoadBalancer elastic/kibana -n logging
+kubectl get secret elasticsearch-master-credentials -n logging -o jsonpath="{.data.password}" | base64 --decode
+
+helm repo add fluent https://fluent.github.io/helm-charts
+BntYDryFLdkfBgWi
+vi fluentd-values.yaml
+helm install fluent-bit fluent/fluent-bit -f fluentbit-values.yaml -n logging
+
+## Metric Server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl top nodes
+kubectl top pods
+
+gmail app password - nfsr yiwr yrgi snya
+
+
+## Install custom app using help
+helm create myapp-python
+helm package myapp-python
+helm install myapp-python ./myapp-python-0.1.0.tgz
+helm upgrade myapp-python ./myapp-python -f myapp-python/values.yaml
+kubectl port-forward svc/myapp-python -n default 5100:5100 --address=0.0.0.0 &
+helm show values myapp-python
+helm uninstall myapp-python
+helm history myapp-python
+helm rollback myapp-python 1
+
+# push to remote to create a helm repo
+git clone https://github.com/am2308/Helm-Package.git
+cd Helm-Package
+mkdir docs
+mv ../myapp-0.1.0.tgz docs/
+helm repo index . --url https://github.com/am2308/Helm-Package
+Do setup in github to host the helm repo
+helm repo index . --url https://am2308.github.io/Helm-Package
+helm repo add my-python-repo https://am2308.github.io/Helm-Package
+helm search repo my-python-repo
+helm install myapp-python my-python-repo/myapp-python
+
+
+
+## Custom Metrics
+### In observability day-4 github repo
+
+## Jaeger
+### In observability day-6 github repo
+
+## logz.io
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm install -n monitoring --create-namespace \
+  --set logs.enabled=true \
+  --set logzio-logs-collector.enabled=true \
+  --set logzio-fluentd.enabled=false \
+  --set logzio-logs-collector.secrets.logzioLogsToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
+  --set logzio-logs-collector.secrets.logzioRegion='uk' \
+  --set logzio-logs-collector.secrets.env_id='demo' \
+  --set metricsOrTraces.enabled=true \
+  --set logzio-k8s-telemetry.metrics.enabled=true \
+  --set logzio-k8s-telemetry.secrets.MetricsToken='BhdOLsWSgtwKBmqbBRSkbkXauPHVdxND' \
+  --set logzio-k8s-telemetry.secrets.ListenerHost='https://listener-uk.logz.io:8053' \
+  --set logzio-k8s-telemetry.secrets.p8s_logzio_name='demo' \
+  --set logzio-k8s-telemetry.enableMetricsFilter.eks=true \
+  --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
+  --set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
+  --set logzio-k8s-telemetry.secrets.LogzioRegion='uk' \
+  --set logzio-k8s-telemetry.traces.enabled=true \
+  --set logzio-k8s-telemetry.secrets.TracesToken='hkItkiXtqYNTBydlvPqpZkmWedgTFLjr' \
+  --set logzio-k8s-telemetry.secrets.LogzioRegion='uk' \
+  --set logzio-k8s-telemetry.spm.enabled=true \
+  --set logzio-k8s-telemetry.secrets.env_id='demo' \
+  --set logzio-k8s-telemetry.secrets.SpmToken='BhdOLsWSgtwKBmqbBRSkbkXauPHVdxND' \
+  --set logzio-k8s-telemetry.serviceGraph.enabled=true \
+  --set securityReport.enabled=true \
+  --set logzio-trivy.env_id='demo' \
+  --set logzio-trivy.secrets.logzioShippingToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
+  --set logzio-trivy.secrets.logzioListener='listener-uk.logz.io' \
+  --set deployEvents.enabled=true \
+  --set logzio-k8s-events.secrets.env_id='demo' \
+  --set logzio-k8s-events.secrets.logzioShippingToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
+  --set logzio-k8s-events.secrets.logzioListener='listener-uk.logz.io' \
+logzio-monitoring logzio-helm/logzio-monitoring
+
+mkdir -p lambda-layer/python-boto3
+cd lambda-layer/python-boto3
+pip install boto3 -t .
+cd ..
+zip -r boto3-layer.zip python-boto3
+
+curl -X POST https://egr35djmdl.execute-api.us-east-1.amazonaws.com/dev/GenerativeAI \
+-H "Content-Type: application/json" \
+-d '{"blog_topic":"Machine Learning and AI"}' 
+
+kubectl port-forward -n monitoring svc/kind-prometheus-kube-prome-prometheus 9095:9090 --address=0.0.0.0 &
+kubectl port-forward -n default svc/a-service 85:80 --address=0.0.0.0 &
+kubectl port-forward -n monitoring svc 8444:443 --address=0.0.0.0 &
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /root/ssl/hyperglance.key \
+  -out /root/ssl/hyperglance.crt \
+  -subj "/CN=localhost"
+
+docker run -d \
+  --name hyperglance \
+  -p 443:443 \
+  --read-only=false \
+  -e APACHE_DISABLE_HTTPS=true \
+  -v /root/ssl/hyperglance.crt:/etc/apache2/ssl-internal/hyperglance.crt:ro \
+  -v /root/ssl/hyperglance.key:/etc/apache2/ssl-internal/hyperglance.key:ro \
+  hyperglance/httpd:latest
+
+## Kubeshark
+helm repo add kubeshark https://kubeshark.github.io/charts
+helm repo update
+helm install kubeshark kubeshark/kubeshark --namespace kubeshark --create-namespace
+kubeshark tap
+kubeshark tap --namespace namespace1,namespace2
+kubeshark tap --selector app=my-app,env=prod --namespace dev,staging
+
+##Istio Mesh
+kubectl create namespace istio-system
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+helm install istiod istio/istiod -n istio-system \
+  --set prometheus.enabled=false \
+  --set meshConfig.defaultConfig.tracing.zipkin.address=<your-jaeger-collector>:9411
+  --set values.sidecarInjectorWebhook.enabled=true
+
+helm install istiod istio/istiod -n istio-system \
+  --set prometheus.enabled=false \
+  --set values.sidecarInjectorWebhook.enabled=true
+kubectl label namespace <namespace> istio-injection=enabled
+
+additionalScrapeConfigs:
+  - job_name: 'istio-proxy'
+    scrape_interval: 15s
+    metrics_path: /stats/prometheus
+    kubernetes_sd_configs:
+      - role: pod
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_label_istio]
+        action: keep
+        regex: sidecar
+  - job_name: 'istio-control-plane'
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+        - istiod.istio-system:15014
+
+helm repo add kiali https://kiali.org/helm-charts
+helm repo update
+kubectl edit configmap kiali -n istio-system
+
+external_services:
+  prometheus:
+    url: http://<prometheus-service-name>.monitoring.svc.cluster.local:<port>
+
+kubectl rollout restart deployment kiali -n istio-system
+
+
+helm install kiali kiali/kiali-server -n istio-system --create-namespace -f kiali-values.yaml
+
+docker run -d --name jaeger --network bank -p 16686:16686 jaegertracing/all-in-one:latest
+docker run -d --name account-mysql --network bank -e MYSQL_ROOT_PASSWORD=account123 -p 3306:3306 mysql:8.0
+
+docker build -t akhilmittal510/account-service:latest -f account-service/dockerfile .
+docker run -d -p 8081:8081 --network bank --name account-service -e MYSQL_ROOT_PASSWORD=account123 akhilmittal510/account-service:latest
+
+docker build -t akhilmittal510/auth-service:latest -f auth-service/dockerfile .
+docker run -d -p 8082:8082 --name auth-service --network bank -e MYSQL_ROOT_PASSWORD=account123 akhilmittal510/auth-service:latest
+
+docker build -t akhilmittal510/transaction-service:latest -f transaction-service/dockerfile .
+docker run -d -p 8083:8083 --network bank --name transaction-service -e MYSQL_ROOT_PASSWORD=account123 akhilmittal510/transaction-service:latest
+
+docker run -d -p 8083:8083 --network bank --name transaction-service -e MYSQL_ROOT_PASSWORD=account123 -e OTEL_LOG_LEVEL=DEBUG -e OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14268/api/traces -e OTEL_SERVICE_NAME=transaction-service akhilmittal510/transaction-service:latest
+docker run -d -p 8082:8082 --network bank --name auth-service -e MYSQL_ROOT_PASSWORD=account123 -e OTEL_LOG_LEVEL=DEBUG -e OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14268/api/traces -e OTEL_SERVICE_NAME=auth-service akhilmittal510/auth-service:latest
+
+CREATE DATABASE banking;
+USE banking;
+CREATE TABLE accounts (
+    account_id VARCHAR(255) PRIMARY KEY,
+    customer_id VARCHAR(255) NOT NULL,
+    account_type VARCHAR(255) NOT NULL,
+    currency VARCHAR(255) NOT NULL,
+    balance FLOAT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255) DEFAULT 'ACTIVE',
+    INDEX (account_id)
+);
+drop table accounts;
+select * from accounts;
+CREATE TABLE transactions (
+    transaction_id VARCHAR(255) PRIMARY KEY, -- Matches str(uuid.uuid4())
+    account_id VARCHAR(255) NOT NULL,        -- Assuming account_id is also a UUID
+    transaction_type VARCHAR(50) NOT NULL, -- Adjust the size based on expected values
+    amount DECIMAL(18, 2) NOT NULL,  -- Use DECIMAL for precise financial data
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Optional: to track when the record was created
+);
+
+curl -X POST \
+  https://jqqsjk2vdf.execute-api.ap-south-1.amazonaws.com/dev/prometheus-alerts \
+  -H "Content-Type: application/json" \
+  -d '{
+        "alertName": "HighCPUUtilization",
+        "severity": "critical",
+        "instance": "i-0abcd1234efgh5678"
+      }'
+
+
+## Style App
+
+docker build -t akhilmittal510/style_app_backend:0.5 .
+docker build -t akhilmittal510/style_app:0.5 .
+docker run -d --name=style_app_backend -p 5000:5000 --env-file .env --network style_app akhilmittal510/style_app_backend:latest
+docker run -d --name=style_app -p 85:80 --network style_app akhilmittal510/style_app:latest
+
+curl -X POST http://style_app_backend:5000/api/auth/login \
+-H "Content-Type: application/json" \
+-d '{"username":"testuser","password":"password123"}'
+
+mittal.akhil@JC772QF4W2 backend % curl -X OPTIONS -H "Origin: http://localhost:85" -H "Access-Control-Request-Method: POST" http://localhost:5000/api/auth/login -v
+
+* Host localhost:5000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:5000...
+* Connected to localhost (::1) port 5000
+> OPTIONS /api/auth/login HTTP/1.1
+> Host: localhost:5000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Origin: http://localhost:85
+> Access-Control-Request-Method: POST
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin: http://localhost:85
+< Vary: Origin
+< Access-Control-Allow-Credentials: true
+< Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS
+< Access-Control-Allow-Headers: Content-Type,Authorization
+< Content-Length: 0
+< Date: Tue, 17 Dec 2024 09:55:51 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< 
+* Connection #0 to host localhost left intact
+
+
+curl -X "PUT" -H "Content-Type: application/json" -d "{
+  \"id\": \"2\",
+  \"price\": 200,
+  \"name\": \"Bottle\",
+  \"description\": \"A water bottle\"
+}" $INVOKE_URL/items
+
+
+docker build -t akhilmittal510/kinderloop_frontend:latest .
+docker build -t akhilmittal510/kinderloop_backend:latest .
+
+
+docker run -d --name=kinder_app_backend -p 5000:5000 --env-file .env --network style_app akhilmittal510/style_app_backend:latest

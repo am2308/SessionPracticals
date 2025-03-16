@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: my-app-gateway
+  namespace: banking # Ensure it's the same namespace as your services or istio-system if global
+spec:
+  selector:
+    istio: ingressgateway  # Matches the Istio ingress gateway's label
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "accounts.demoprojectbc1.com"  # Replace with your domain name

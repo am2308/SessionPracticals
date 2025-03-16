@@ -1,13 +1,13 @@
  - ERROR 401 - Some error message
  - ERROR 400 - Some error message
  - ERROR 502 - Some error message
- - ERROR 403 - Some error message
+ - INFO 403 - Some  message
  - ERROR 404 - Some error message
  - ERROR 502 - Some error message
  - ERROR 502 - Some error message
  - ERROR 400 - Some error message
  - ERROR 403 - Some error message
- - ERROR 504 - Some error message
+ - DEBUG 504 - Some message
  - ERROR 400 - Some error message
  - ERROR 502 - Some error message
  - ERROR 500 - Some error message

@@ -7,7 +7,7 @@ dynamodb_client = boto3.resource('dynamodb')
 
 # Configuration variables
 DYNAMODB_TABLE_NAME = 'EC2InstanceStatus'  # DynamoDB table name
-INSTANCE_ID = 'i-02f439094bbf19ae8'  # Replace with your EC2 instance ID
+INSTANCE_ID = 'i-0414e9981a08be955'  # Replace with your EC2 instance ID
 
 def get_desired_state(instance_id):
     """
