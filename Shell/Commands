@@ -870,6 +870,81 @@ helm uninstall myapp-python
 helm history myapp-python
 helm rollback myapp-python 1
 
+## Helm Commands
+helm lint ms-app
+helm install test-ms-app ./ms-app --dry-run
+helm template myapp
+helm package ms-app
+# Add chart repo
+mkdir charts && mv myapp-0.1.0.tgz charts/
+cd charts
+helm repo index . --url https://<your-github-username>.github.io/<repo-name>/charts
+git add .
+git commit -m "Add Helm chart"
+git push
+helm repo add mycharts https://<your-github-username>.github.io/<repo-name>/charts
+helm repo update
+helm search repo mycharts
+helm install myapp mycharts/myapp --version 0.1.0
+helm install myapp mycharts/myapp -f prod-values.yaml
+
+kubectl -n kube-system get configmap aws-auth -o yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapUsers: |
+    - userarn: arn:aws:iam::123456789012:user/github-actions-deployer
+      username: github-actions-deployer
+      groups:
+        - system:masters
+  mapRoles: |
+    - rolearn: arn:aws:iam::123456789012:role/eksctl-my-cluster-NodeInstanceRole-1A2B3C4D5E6F
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+
+arn:aws:iam::637423357784:user/kinderloop_ms
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::123456789012:role/eksctl-amcdemo-nodegroup-amcdemo-ng-publ-NodeInstanceRole-1ABC2DEF3GHI
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+
+
+readinessProbe:
+  exec:
+    command:
+      - mysqladmin
+      - ping
+      - -h
+      - 127.0.0.1
+  initialDelaySeconds: 20
+  periodSeconds: 10
+
+initContainers:
+  - name: wait-for-mysql
+    image: busybox
+    command: ['sh', '-c', 'until nc -z mysql-service 3306; do echo waiting for mysql; sleep 5; done;']
+kubectl exec -it <mysql-pod-name> -- mysql -u root -p
+CREATE DATABASE myapp_db;
+USE myapp_db;
+SHOW TABLES;
+
+
+
 # push to remote to create a helm repo
 git clone https://github.com/am2308/Helm-Package.git
 cd Helm-Package
@@ -896,32 +971,32 @@ helm install -n monitoring --create-namespace \
   --set logs.enabled=true \
   --set logzio-logs-collector.enabled=true \
   --set logzio-fluentd.enabled=false \
-  --set logzio-logs-collector.secrets.logzioLogsToken='' \
+  --set logzio-logs-collector.secrets.logzioLogsToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
   --set logzio-logs-collector.secrets.logzioRegion='uk' \
   --set logzio-logs-collector.secrets.env_id='demo' \
   --set metricsOrTraces.enabled=true \
   --set logzio-k8s-telemetry.metrics.enabled=true \
-  --set logzio-k8s-telemetry.secrets.MetricsToken='' \
+  --set logzio-k8s-telemetry.secrets.MetricsToken='BhdOLsWSgtwKBmqbBRSkbkXauPHVdxND' \
   --set logzio-k8s-telemetry.secrets.ListenerHost='https://listener-uk.logz.io:8053' \
   --set logzio-k8s-telemetry.secrets.p8s_logzio_name='demo' \
   --set logzio-k8s-telemetry.enableMetricsFilter.eks=true \
   --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
-  --set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken='' \
+  --set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
   --set logzio-k8s-telemetry.secrets.LogzioRegion='uk' \
   --set logzio-k8s-telemetry.traces.enabled=true \
-  --set logzio-k8s-telemetry.secrets.TracesToken='' \
+  --set logzio-k8s-telemetry.secrets.TracesToken='hkItkiXtqYNTBydlvPqpZkmWedgTFLjr' \
   --set logzio-k8s-telemetry.secrets.LogzioRegion='uk' \
   --set logzio-k8s-telemetry.spm.enabled=true \
   --set logzio-k8s-telemetry.secrets.env_id='demo' \
-  --set logzio-k8s-telemetry.secrets.SpmToken='' \
+  --set logzio-k8s-telemetry.secrets.SpmToken='BhdOLsWSgtwKBmqbBRSkbkXauPHVdxND' \
   --set logzio-k8s-telemetry.serviceGraph.enabled=true \
   --set securityReport.enabled=true \
   --set logzio-trivy.env_id='demo' \
-  --set logzio-trivy.secrets.logzioShippingToken='' \
+  --set logzio-trivy.secrets.logzioShippingToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
   --set logzio-trivy.secrets.logzioListener='listener-uk.logz.io' \
   --set deployEvents.enabled=true \
   --set logzio-k8s-events.secrets.env_id='demo' \
-  --set logzio-k8s-events.secrets.logzioShippingToken='' \
+  --set logzio-k8s-events.secrets.logzioShippingToken='GJFVmiqjHguqayYolbaiLgwLiFJuoTHA' \
   --set logzio-k8s-events.secrets.logzioListener='listener-uk.logz.io' \
 logzio-monitoring logzio-helm/logzio-monitoring
 
@@ -1105,3 +1180,196 @@ docker build -t akhilmittal510/kinderloop_backend:latest .
 
 
 docker run -d --name=kinder_app_backend -p 5000:5000 --env-file .env --network style_app akhilmittal510/style_app_backend:latest
+
+
+Datadog
+-------
+1) IAM ServiceAccount
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeTags",
+                "eks:ListClusters",
+                "eks:DescribeCluster",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents",
+                "logs:PutLogEvents",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+
+aws iam create-policy --policy-name DatadogAgentPolicy --policy-document file://datadog-policy.json
+
+eksctl create iamserviceaccount \
+    --name datadog-agent-sa \
+    --namespace kube-system \
+    --cluster <your-cluster-name> \
+    --role-name DatadogAgentRole \
+    --attach-policy-arn arn:aws:iam::<AWS_ACCOUNT_ID>:policy/DatadogAgentPolicy \
+    --region <your-region> \
+    --approve
+
+2)helm repo add datadog https://helm.datadoghq.com
+helm repo update
+
+helm install datadog-monitoring datadog/datadog \
+  --set datadog.site="datadoghq.com" \  # Change if using EU site (datadoghq.eu)
+  --set datadog.apiKey="YOUR_DATADOG_API_KEY" \
+  --set datadog.appKey="YOUR_DATADOG_APP_KEY" \
+  --set datadog.logs.enabled=true \
+  --set datadog.apm.enabled=true \
+  --set datadog.processAgent.enabled=true \
+  --set datadog.kubeStateMetricsEnabled=true
+3) Add annotations
+annotations:
+  ad.datadoghq.com/<your-container-name>.checks: |
+    {
+      "prometheus": {
+        "instances": [
+          {"prometheus_url": "http://%%host%%:8080/metrics"}
+        ]
+      }
+    }
+
+
+
+helm upgrade datadog-monitoring datadog/datadog \
+  --set datadog.apiKey="YOUR_DATADOG_API_KEY" \
+  --set datadog.appKey="YOUR_DATADOG_APP_KEY" \
+  --set datadog.clusterName="your-cluster-name" \
+  --set datadog.kubeStateMetricsEnabled=true \
+  --set datadog.logs.enabled=true \
+  --set datadog.logs.containerCollectAll=true \
+  --set datadog.apm.enabled=true \
+  --set datadog.processAgent.enabled=true \
+  --set datadog.serviceAccount.name=datadog-agent-sa
+  --set datadog.serviceAccount.create=false \
+
+helm repo add datadog https://helm.datadoghq.com
+helm repo update
+
+datadog:
+  apiKey: "<YOUR_DATADOG_API_KEY>"
+  appKey: "<OPTIONAL_APP_KEY_IF_USING_DASHBOARDS>"
+  site: "datadoghq.com"  # or "us5.datadoghq.com" for US5, etc.
+  clusterName: "<YOUR_EKS_CLUSTER_NAME>"
+
+clusterAgent:
+  enabled: true
+
+kube-state-metrics:
+  enabled: true
+
+helm install datadog-agent -f values.yaml datadog/datadog
+
+kubectl apply -f https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml
+kubectl apply -f https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml
+kubectl apply -f https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: datadog-agent
+spec:
+  template:
+    spec:
+      serviceAccountName: datadog-agent
+      containers:
+      - name: datadog-agent
+        image: gcr.io/datadoghq/agent:latest
+        env:
+          - name: DD_API_KEY
+            value: "<YOUR_DATADOG_API_KEY>"
+          - name: DD_SITE
+            value: "datadoghq.com"
+          - name: DD_KUBERNETES_ENABLED
+            value: "true"
+          - name: DD_CLUSTER_NAME
+            value: "<YOUR_EKS_CLUSTER_NAME>"
+
+kubectl apply -f datadog-agent.yaml
+
+
+terraform {
+  required_providers {
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.12.1"  # Use the latest stable version
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.25.2"
+    }
+  }
+}
+
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"  # Path to your kubeconfig file
+    # Alternatively, use in-cluster config:
+    # config_context = var.kube_context
+  }
+}
+
+
+resource "helm_release" "prometheus_stack" {
+  name       = "kube-prometheus-stack"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-prometheus-stack"
+  version    = "58.0.0"  # Check latest version: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+  namespace  = "monitoring"
+  create_namespace = true
+
+  # Custom values (override defaults)
+  set {
+    name  = "prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues"
+    value = "false"
+  }
+
+  set {
+    name  = "grafana.enabled"
+    value = "true"
+  }
+
+  # Example: Disable Alertmanager if not needed
+  set {
+    name  = "alertmanager.enabled"
+    value = "false"
+  }
+}
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    targetRevision: HEAD
+    path: dev
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: myapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
