@@ -572,6 +572,58 @@ eksctl scale nodegroup \
   --nodes-min 3 \
   --nodes-max 5 \
   --region ap-south-1
+
+  kubectl get configmap aws-auth -n kube-system -o yaml > aws-auth.yaml
+
+mapRoles: |
+  - rolearn: arn:aws:iam::123456789012:role/EKSAdminRole
+    username: eks-admin
+    groups:
+      - system:masters
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    # Map for worker node group role (typically required for nodes to join the cluster)
+    - rolearn: arn:aws:iam::123456789012:role/eks-nodegroup-role
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+
+    # Admin role access
+    - rolearn: arn:aws:iam::123456789012:role/EKSAdminRole
+      username: eks-admin
+      groups:
+        - system:masters
+
+    # DevOps team role
+    - rolearn: arn:aws:iam::123456789012:role/EKSDevOpsTeam
+      username: devops-team
+      groups:
+        - system:masters
+
+  mapUsers: |
+    # Add individual IAM users
+    - userarn: arn:aws:iam::123456789012:user/dev-user
+      username: dev-user
+      groups:
+        - system:masters
+
+    - userarn: arn:aws:iam::123456789012:user/readonly-user
+      username: readonly-user
+      groups:
+        - view
+
+  mapAccounts: |
+    # Optional: allow additional AWS accounts to assume mapped roles (for cross-account access)
+    - "123456789012
+
+
 kubectl edit configmap aws-auth -n kube-system
 cat ~/.kube/config
 
@@ -1373,3 +1425,22 @@ spec:
     automated:
       selfHeal: true
       prune: true
+
+
+### Istio Implementation
+Istio Installtion using - https://istio.io/latest/docs/setup/getting-started/
+Deploy the sample application
+Before creating the booking gateway run below commands
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.0.0/standard-install.yaml
+istioctl install --set profile=demo \
+  --set values.pilot.env.PILOT_ENABLE_GATEWAY_API=true
+
+kubectl get crds | grep gateway
+
+Then install gateway and we will be able to access application
+Canary Deployment - https://github.com/am2308/istio/blob/main/traffic-management/traffic-shifting/01-old-version.yaml
+Create Destination Rule - kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+
+kubectl edit dr reviews
+
+Trffic shift - https://github.com/am2308/istio/blob/main/traffic-management/traffic-shifting/02-traffic-shifting.yaml
