@@ -554,7 +554,7 @@ eksctl create nodegroup --cluster=amcdemo \
                        --name=amcdemo-ng-public1 \
                        --node-type=t3.medium \
                        --nodes=2 \
-                       --nodes-min=1 \
+                       --nodes-min=2 \
                        --nodes-max=6 \
                        --node-volume-size=30 \
                        --ssh-access \
@@ -1444,3 +1444,5 @@ Create Destination Rule - kubectl apply -f samples/bookinfo/networking/destinati
 kubectl edit dr reviews
 
 Trffic shift - https://github.com/am2308/istio/blob/main/traffic-management/traffic-shifting/02-traffic-shifting.yaml
+
+kubectl get --raw /api/v1/namespaces/monitoring/services/prometheus-operated:web/proxy/api/v1/query?query=kube_pod_container_status_restarts_total
