@@ -1446,3 +1446,5 @@ kubectl edit dr reviews
 Trffic shift - https://github.com/am2308/istio/blob/main/traffic-management/traffic-shifting/02-traffic-shifting.yaml
 
 kubectl get --raw /api/v1/namespaces/monitoring/services/prometheus-operated:web/proxy/api/v1/query?query=kube_pod_container_status_restarts_total
+
+kubectl get --raw /api/v1/namespaces/monitoring/services/prometheus-operated:web/proxy/api/v1/query?query=kube_pod_container_status_restarts_total{namespace="<namespace>",pod="<pod-name>"}
